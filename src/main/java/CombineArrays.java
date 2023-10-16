@@ -12,11 +12,14 @@ public class CombineArrays {
         int totalLength = arr1.length + arr2.length;
         int[] combinedArr = new int[totalLength];
 
-        for (int i = 0; i < arr1.length; i++) {
-            combinedArr[i] = arr1[i];
-        }
-        for (int i = 0; i < arr2.length; i++) {
-            combinedArr[arr1.length + i] = arr2[i];
+        for (int i = 0; i < combinedArr.length; i++) {
+            
+            if (i >= arr1.length) {
+                combinedArr[i] = arr2[i - arr1.length];
+            }
+            else {
+                combinedArr[i] = arr1[i];
+            }
         }
 
         return combinedArr;
